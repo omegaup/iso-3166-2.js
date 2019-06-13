@@ -12,9 +12,14 @@ interface Country {
   sub: Subdivisions;
 }
 
-export function country(name: string): Country;
-export function subdivision(type:string, name: string): Subdivision;
+export function country(code: string): Country;
+export function subdivision(country:string, code: string): Subdivision;
 
-export const data: Subdivisions;
-export const codes: Subdivisions;
-
+interface CountryMapping {
+  [code: string]: Country;
+}
+export const data: CountryMapping;
+interface CodeMapping {
+  [code: string]: string;
+}
+export const codes: CodeMapping;
